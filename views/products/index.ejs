@@ -9,8 +9,10 @@
     <h1>All products</h1>
     <ul>
         <% for(let product of products) { %>
-            <li><%= product.name %></li>
+            <li><a href="/products/<%=product._id%>"><%= product.name %></a></li>
             <% } %>
     </ul>
+
+    <a href="/products/new">Add new product!</a>
 </body>
 </html>
