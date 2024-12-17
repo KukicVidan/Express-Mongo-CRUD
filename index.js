@@ -1,12 +1,15 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const methodOverride = require('method-override');
 
 const Product = require('./models/product');
 
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine','ejs');
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}));
+app.use(methodOverride('_method'));
+
 
 
 const mongoose = require('mongoose');
@@ -52,6 +55,48 @@ app.get('/products/:id',async (req,res)=>{
     console.log(product)
     res.render('products/show',{product})
 })
+
+//TO delete product !!!!methodOverride!!!!
+app.delete('/products/:id', async (req, res) => {
+    const { id } = req.params;
+    console.log(`Attempting to delete product with ID: ${id}`); 
+    try {
+        const result = await Product.deleteOne({ _id: id });
+        if (result.deletedCount === 0) {
+            console.log(`Product with ID ${id} not found`); 
+            res.status(404).send('Product not found');
+        } else {
+            console.log(`Deleted product with ID: ${id}`);
+            res.redirect('/products');
+        }
+    } catch (err) {
+        console.error("Error deleting product", err);
+        res.status(500).send('Failed to delete product');
+    }
+});
+
+//Route to update product
+app.get('/products/:id/edit',async(req,res)=>{
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    res.render('products/edit',{product});
+})
+app.put('/products/:id', async (req, res) => {
+    const { id } = req.params;  // Extract ID from params
+    const { name, price, category } = req.body;  // Extract the new values from the form
+
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(
+            id, 
+            { name, price, category },
+            { new: true }  // This returns the updated document
+        );
+        res.redirect(`/products/${updatedProduct._id}`);  // Redirect to the product's page
+    } catch (err) {
+        console.error("Error updating product:", err);
+        res.status(500).send('Failed to update product');
+    }
+});
 
 
 app.listen(3000,()=>{
