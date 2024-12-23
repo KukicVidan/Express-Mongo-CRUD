@@ -24,7 +24,7 @@ mongoose.connect('mongodb://localhost:27017/farmStand')
 
 
 
-
+// AKA index :D
 app.get('/products',async (req,res)=>{
     const products = await Product.find({}); //db.products.find()
     res.render('products/index',{products});//<- Ovaj drugi argument mi govori da na ovom routu mogu koristiti {products}object
