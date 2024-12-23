@@ -21,10 +21,10 @@
             
         
         
-        <select name="category"  value="<%= product.category %> ">
-            <option value="fruit">Fruit</option>
-            <option value="vegetable">Vegetable</option>
-            <option value="dairy">Dairy</option>
+        <select name="category" id="category">
+            <option value="fruit"<%=product.category === 'fruit' ? 'selected': '' %>>fruit</option>
+            <option value="vegetable"<%=product.category === 'vegetable' ? 'selected': '' %>>vegetable</option>
+            <option value="dairy"<%=product.category === 'dairy' ? 'selected': '' %>>dairy</option>
             
         </select><br>
         <button type="submit">Update product</button>
