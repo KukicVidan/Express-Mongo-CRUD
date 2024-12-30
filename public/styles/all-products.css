@@ -1,0 +1,64 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Styling for the product list */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #4CAF50;
+}
+
+/* Add new product button */
+a[href="/products/new"] {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+a[href="/products/new"]:hover {
+    background-color: #45a049;
+}
