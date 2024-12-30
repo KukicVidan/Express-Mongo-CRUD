@@ -1,0 +1,92 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+/* Product details styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+    font-size: 1.2rem;
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #4CAF50;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #45a049;
+}
+
+/* Styling for the delete and edit buttons */
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f44336; /* Red for delete */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form button:hover {
+    background-color: #e53935;
+}
+
+a[href*="edit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green for edit */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+a[href*="edit"]:hover {
+    background-color: #45a049;
+}
+
+a[href*="go back"] {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #2196F3; /* Blue for go back */
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+a[href*="go back"]:hover {
+    color: #0b79d0;
+}
